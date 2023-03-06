@@ -54,7 +54,7 @@ class MultiHeadAttentionANE(nn.Module):
         k = self.key(x if xa is None else xa)
         v = self.value(x if xa is None else xa)
 
-        print(f"Input q,k,v shapes = {q.shape, k.shape, v.shape}")
+        # print(f"Input q,k,v shapes = {q.shape, k.shape, v.shape}")
 
         if verbose:
             print("Query shape: ", q.shape)
@@ -115,10 +115,6 @@ class MultiHeadAttentionANE(nn.Module):
             dim_per_head,
             dim=1)  # (bs, dim_per_head, 1, max_seq_length) * n_heads
                     # (b, c, h, k)
-
-        print(f"`mh_q` ({len(mh_q)})  shape:   ", mh_q[0].shape)
-        print(f"`mh_k` ({len(mh_k)})  shape:   ", mh_k[0].shape)
-        print(f"`mh_v` ({len(mh_v)})  shape:   ", mh_v[0].shape)
 
         if verbose:
             print(f"`mh_q` ({len(mh_q)}) shape: ", mh_q[0].shape)
